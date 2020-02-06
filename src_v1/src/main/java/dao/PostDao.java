@@ -1,7 +1,7 @@
-package com.critix.dao;
+//insert package here 
 
-import com.critix.entities.UserPost;
-import com.critix.entities.UserProfile;
+import com.projectname.entities.UserPost;
+import com.projectname.entities.UserProfile;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
@@ -12,7 +12,7 @@ import java.util.List;
 public class PostDao {
 
     public static void insertUserPost(UserPost userPost) {
-        EntityManager em = EntityDao.getEntityManager("Critix");
+        EntityManager em = EntityDao.getEntityManager("mydatabase");
         EntityTransaction transaction = em.getTransaction();
 
         try {
@@ -28,7 +28,7 @@ public class PostDao {
     }
 
     public static void updateUserPost(UserPost userPost) {
-        EntityManager em = EntityDao.getEntityManager("Critix");
+        EntityManager em = EntityDao.getEntityManager("mydatabase");
         EntityTransaction transaction = em.getTransaction();
 
         try {
@@ -45,7 +45,7 @@ public class PostDao {
     }
 
     public static void deleteUserPost(UserPost userPost) {
-        EntityManager em = EntityDao.getEntityManager("Critix");
+        EntityManager em = EntityDao.getEntityManager("mydatabase");
         EntityTransaction transaction = em.getTransaction();
 
         try {
@@ -62,7 +62,7 @@ public class PostDao {
     }
 
     public static List<UserPost> userPosts() {
-        EntityManager em = EntityDao.getEntityManager("Critix");
+        EntityManager em = EntityDao.getEntityManager("mydatabase");
         String queryString = "SELECT c FROM UserPost c"; //not needed but creating so that I don't forget how to
         List<UserPost> userPosts = null; //will be used to return UserPosts later
 
@@ -86,7 +86,7 @@ public class PostDao {
          * Posts from Users by ID
          */
 
-        EntityManager em = EntityDao.getEntityManager("Critix");
+        EntityManager em = EntityDao.getEntityManager("mydatabase");
         List<UserPost> userPosts = null;
         String queryString = "SELECT c FROM UserPost c WHERE c.userProfile.userId =:userId";
 
@@ -110,7 +110,7 @@ public class PostDao {
          * and receiving their tweets, will implement that later
          */
 
-        EntityManager em = EntityDao.getEntityManager("Critix");
+        EntityManager em = EntityDao.getEntityManager("mydatabase");
         List<UserPost> userPosts = null;
         String queryString = "SELECT c FROM UserPost c "
                 + "WHERE c.userProfile.email =: email";
@@ -129,7 +129,7 @@ public class PostDao {
     }
 
     public static List<UserPost> searchForUserPost(String search) {
-        EntityManager em = EntityDao.getEntityManager("Critix");
+        EntityManager em = EntityDao.getEntityManager("mydatabase");
         List<UserPost> searchPosts = null;
         String queryString = "SELECT c FROM UserPost c "
                 + "WHERE c.postMessage LIKE:search";
