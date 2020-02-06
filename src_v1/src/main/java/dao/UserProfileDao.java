@@ -1,6 +1,6 @@
-package com.critix.dao;
+// insert package here
 
-import com.critix.entities.UserProfile;
+import com.projectnamehere.entities.UserProfile;
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
