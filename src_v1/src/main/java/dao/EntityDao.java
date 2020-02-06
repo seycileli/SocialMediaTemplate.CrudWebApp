@@ -1,4 +1,4 @@
-package com.critix.dao;
+//insert package here
 
 import javax.persistence.EntityManager;
 import javax.persistence.Persistence;
