@@ -1,6 +1,6 @@
-package com.critix.dao;
+//insert package here
 
-import com.critix.entities.UserProfile;
+import com.projectname.entities.UserProfile;
 
 import javax.persistence.*;
 
@@ -16,7 +16,7 @@ public class UserDao {
 
     public static UserProfile userProfile(UserProfile userId) {
 
-        EntityManager em = EntityDao.getEntityManager("Critix");
+        EntityManager em = EntityDao.getEntityManager("mydatabase");
         UserProfile userProfile = em.find(UserProfile.class, userId);
 
         em.close();
@@ -28,7 +28,7 @@ public class UserDao {
          * Create a new user
          */
 
-        EntityManager em = EntityDao.getEntityManager("Critix");
+        EntityManager em = EntityDao.getEntityManager("mydatabase");
         EntityTransaction transaction = em.getTransaction();
 
         try {
@@ -67,7 +67,7 @@ public class UserDao {
          * that were made during transaction
          */
 
-        EntityManager em = EntityDao.getEntityManager("Critix");
+        EntityManager em = EntityDao.getEntityManager("mydatabase");
         EntityTransaction transaction = em.getTransaction();
 
         try {
@@ -85,7 +85,7 @@ public class UserDao {
     }
 
     public static void deleteUserProfile(UserProfile userProfile) {
-        EntityManager em = EntityDao.getEntityManager("Critix");
+        EntityManager em = EntityDao.getEntityManager("mydatabase");
         EntityTransaction transaction = em.getTransaction();
 
         try {
@@ -108,7 +108,7 @@ public class UserDao {
          */
 
         int result = 0;
-        EntityManager em = EntityDao.getEntityManager("Critix");
+        EntityManager em = EntityDao.getEntityManager("mydatabase");
         EntityTransaction transaction = em.getTransaction();
         em.getTransaction().begin();
 
@@ -158,7 +158,7 @@ public class UserDao {
 
     public static boolean isUserValid(String email, String userPassword) {
 
-        EntityManager em = EntityDao.getEntityManager("Critix");
+        EntityManager em = EntityDao.getEntityManager("mydatabase");
 
         String sqlQuery = "SELECT count(c.userId) FROM UserProfile c "
                 + "WHERE c.email = :email and c.password = :password";
