@@ -8,7 +8,7 @@ import java.util.List;
 public class UserProfileDao implements UserProfileInterface {
 
 //    will insert persistence.xml persistence unit name below
-    private final String persistenceString = "Critix";
+    private final String persistenceString = "mydatabase";
 
     @Override
     public int insertUser(UserProfile user) {
@@ -19,7 +19,7 @@ public class UserProfileDao implements UserProfileInterface {
 //                    Persistence.createEntityManagerFactory(persistenceString);
 //            EntityManager em = emf.createEntityManager();
             EntityManagerFactory emf =
-                    Persistence.createEntityManagerFactory("Critix");
+                    Persistence.createEntityManagerFactory("mydatabase");
             EntityManager em = emf.createEntityManager();
             em.getTransaction().begin();
 
@@ -54,7 +54,7 @@ public class UserProfileDao implements UserProfileInterface {
 //            EntityManager em = emf.createEntityManager();
 
             EntityManagerFactory emf =
-                    Persistence.createEntityManagerFactory("Critix");
+                    Persistence.createEntityManagerFactory("mydatabase");
             EntityManager em = emf.createEntityManager();
 
             em.getTransaction().begin();
