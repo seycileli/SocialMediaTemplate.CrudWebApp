@@ -32,12 +32,14 @@ class CasestudyApplicationTests {
 
 		userServices.deleteUser(1);
 
-		userServices.searchByEmail(userProfile.getEmail());
+		userServices.getUserByEmail(userProfile);
 
 		userServices.isUserValid(userProfile.getEmail(), userProfile.getPassword());
 
 		userServices.createUser(new UserProfile(1, "",
 				"", "", "", "", userProfile.getJoinDate()));
+
+
 
 		//testing userServices
 
